@@ -4,9 +4,10 @@
   "description": "Example app for Apollo",
   "main": "index.js",
   "scripts": {
+    "setup": "cp ./config/.env.default ./.env && npm run migrate && npm run seed",
     "start-server": "nodemon api/index.js --watch api --exec babel-node",
     "start-client": "webpack-dev-server -d --hot --inline --no-info --port 3000",
-    "start": "concurrently \"npm run start-server\" \"npm run start-client\"",
+    "start": "concurrently --kill-others \"npm run start-server\" \"npm run start-client\"",
     "test": "mocha --compilers js:babel-core/register --reporter spec --full-trace 'api/**/*.test.js'",
     "seed": "knex seed:run",
     "migrate": "knex migrate:latest"
