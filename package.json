@@ -8,6 +8,7 @@
     "start-server": "nodemon api/index.js --watch api --exec babel-node",
     "start-client": "webpack-dev-server -d --hot --inline --no-info --port 3000",
     "start": "concurrently --kill-others \"npm run start-server\" \"npm run start-client\"",
+    "lint": "eslint api ui",
     "test": "mocha --compilers js:babel-core/register --reporter spec --full-trace 'api/**/*.test.js'",
     "seed": "knex seed:run",
     "migrate": "knex migrate:latest"
@@ -33,6 +34,11 @@
     "chai": "^3.5.0",
     "concurrently": "^2.1.0",
     "css-loader": "^0.23.1",
+    "eslint": "^2.11.1",
+    "eslint-config-airbnb": "^9.0.1",
+    "eslint-plugin-import": "^1.8.1",
+    "eslint-plugin-jsx-a11y": "^1.2.2",
+    "eslint-plugin-react": "^5.1.1",
     "html-webpack-plugin": "^2.17.0",
     "mocha": "^2.4.5",
     "nodemon": "^1.9.2",
@@ -64,6 +70,7 @@
     "react-timeago": "^3.0.0",
     "redux": "^3.5.2",
     "request-promise": "^3.0.0",
-    "sqlite3": "^3.1.4"
+    "sqlite3": "^3.1.4",
+    "whatwg-fetch": "^1.0.0"
   }
 }
